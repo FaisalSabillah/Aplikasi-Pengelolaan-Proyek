@@ -1,0 +1,48 @@
+.project-list {
+    margin-top: 20px;
+  }
+  
+  .project-list h2 {
+    color: #444;
+  }
+  
+  .project-list ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .project-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .project-item h3 {
+    margin: 0 0 5px 0;
+    color: #333;
+  }
+  
+  .project-item p {
+    margin: 0;
+    color: #666;
+  }
+  
+  .project-item button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .project-item button:hover {
+    background-color: #45a049;
+  }
+  
+  

@@ -6,6 +6,7 @@
     margin-right: 40px;
     padding: 10px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     border-color: white;
@@ -20,6 +21,7 @@
     border: 1px solid #ddd;
     border-radius: 4px;
     background-color: white;
+    margin: 5px 5px;
   }
   
   

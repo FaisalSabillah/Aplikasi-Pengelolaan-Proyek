@@ -9,16 +9,6 @@ const TaskList = () => {
   const [tasks, setTasks] = useState([])
   const { projectId } = useParams()
 
-  const loadTasks = async () => {
-    try {
-      const response = await axios.get(`https://test-fe.sidak.co.id/api/projects/${projectId}/tasks`);
-      setTasks(response.data)
-    } catch (error) {
-      console.error("Error fetching tasks:", error)
-      toast.error("Failed to load tasks")
-    }
-  }
-
   const handleTaskUpdate = async (taskId, newStatus) => {
     try {
       await axios.put(`https://test-fe.sidak.co.id/api/tasks/${taskId}`, { status: newStatus });
@@ -31,6 +21,16 @@ const TaskList = () => {
   }
   
   useEffect(() => {
+    const loadTasks = async () => {
+      try {
+        const response = await axios.get(`https://test-fe.sidak.co.id/api/projects/${projectId}/tasks`);
+        setTasks(response.data)
+      } catch (error) {
+        console.error("Error fetching tasks:", error)
+        toast.error("Failed to load tasks")
+      }
+    }
+    
     loadTasks()
   }, [projectId])
 

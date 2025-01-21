@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from 'axios';
@@ -7,19 +7,18 @@ import "./style/ProjectList.css";
 const ProjectList = () => {
     const [projects, setProjects] = useState([]);
 
-    const loadProjects = useCallback(async () => {
-        try {
-            const response = await axios.get('https://test-fe.sidak.co.id/api/projects');
-            setProjects(response.data);
-        } catch (error) {
-            console.error("Error fetching projects:", error);
-            toast.error("Failed to load projects");
-        }
-    }, []); // Tambahkan dependensi yang diperlukan di sini
-
-    useEffect(() => {
-        loadProjects();
-    }, [loadProjects]); // Sekarang loadProjects ada di sini
+  useEffect(() => {
+    const loadProjects = async () => {
+      try {
+          const response = await axios.get('https://test-fe.sidak.co.id/api/projects');
+          setProjects(response.data);
+      } catch (error) {
+          console.error("Error fetching projects:", error);
+          toast.error("Failed to load projects");
+      }
+  };
+      loadProjects();
+    }, []);
 
     return (
         <div className="project-list">

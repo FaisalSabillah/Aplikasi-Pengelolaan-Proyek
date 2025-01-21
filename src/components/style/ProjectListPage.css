@@ -2,6 +2,7 @@
     background-color: #4CAF50;
     color: white;
     border: none;
+    margin-left: 20px;
     padding: 10px 15px;
     border-radius: 4px;
     cursor: pointer;
@@ -9,4 +10,8 @@
   
   .add-project-button:hover {
     background-color: #45a049;
+  }
+
+  .project-list-page {
+    background-color: rgb(46, 64, 73);
   }

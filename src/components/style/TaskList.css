@@ -1,4 +1,25 @@
+.list-container {
+  padding: 50px;
+}
+
 .task-list {
-    margin-top: 20px;
+    margin-top: 20px; 
   }
 
+.task-list h1 {
+  margin-bottom: 50px;
+}
+
+.list-item {
+  margin-top: 10px;
+  background-color: white;
+  margin: 40px 40px;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.list-item h3 {
+  margin-left: 40px;
+  margin-top: 10px;
+  color: #666;
+}

@@ -1,48 +1,53 @@
 .project-list {
-    margin-top: 20px;
-  }
-  
-  .project-list h2 {
-    color: #444;
-  }
-  
-  .project-list ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .project-item {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    margin-bottom: 10px;
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .project-item h3 {
-    margin: 0 0 5px 0;
-    color: #333;
-  }
-  
-  .project-item p {
-    margin: 0;
-    color: #666;
-  }
-  
-  .project-item button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .project-item button:hover {
-    background-color: #45a049;
-  }
-  
-  
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.project-list h2 {
+  color: #444;
+}
+
+.project-list ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex; /* Menggunakan Flexbox untuk menampilkan item dalam baris */
+  flex-wrap: wrap; /* Membungkus item jika tidak muat dalam satu baris */
+  gap: 10px; /* Jarak antar item */
+}
+
+.project-item {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 15px;
+  flex: 1 1 calc(33.333% - 10px); 
+  box-sizing: border-box; 
+  display: flex; /* Menggunakan Flexbox untuk item */
+  flex-direction: column; /* Mengatur arah flex menjadi kolom */
+  justify-content: space-between; /* Mengatur jarak antar elemen */
+}
+
+.project-item h3 {
+  margin: 0 0 5px 0;
+  color: #333;
+}
+
+.project-item p {
+  margin: 0;
+  color: #666;
+}
+
+.project-item button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  margin-top: 10px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.project-item button:hover {
+  background-color: #45a049;
+}

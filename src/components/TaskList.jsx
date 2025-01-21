@@ -4,6 +4,7 @@ import TaskItem from "./TaskItem"
 import AddTaskForm from "./AddTaskForm"
 import { toast } from "react-toastify"
 import axios from 'axios';
+import "./style/TaskList.css"
 
 const TaskList = () => {
   const [tasks, setTasks] = useState([])
@@ -19,7 +20,7 @@ const TaskList = () => {
       toast.error("Failed to update task")
     }
   }
-  
+
   useEffect(() => {
     const loadTasks = async () => {
       try {
@@ -30,15 +31,20 @@ const TaskList = () => {
         toast.error("Failed to load tasks")
       }
     }
-    
+
     loadTasks()
   }, [projectId])
 
   return (
-    <div className="task-list">
-      <h1>Tasks for Project {projectId}</h1>
-      <AddTaskForm projectId={projectId} onTaskAdded={(newTask) => setTasks([...tasks, newTask])} />
-      <TaskItem tasks={tasks} onTaskUpdate={handleTaskUpdate} />
+    <div className="list-container">
+      <div className="task-list">
+        <h1>Tasks for Project {projectId}</h1>
+          <AddTaskForm projectId={projectId} onTaskAdded={(newTask) => setTasks([...tasks, newTask])} />
+      </div>
+      <div className="list-item">
+        <h3>Task List:</h3>
+          <TaskItem tasks={tasks} onTaskUpdate={handleTaskUpdate} />
+        </div>
     </div>
   )
 }

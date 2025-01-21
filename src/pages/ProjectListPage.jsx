@@ -1,0 +1,22 @@
+import React from "react"
+import { Link } from "react-router-dom"
+import ProjectList from "../components/ProjectList"
+import "../components/style/ProjectListPage.css"
+
+const ProjectListPage = () => {
+
+  return (
+    <div className="project-list-page">
+      <div className="header">
+        <h1>Aplikasi Pengelolaan Proyek</h1>
+        <Link to="/add-project" className="add-project-button">
+          Add New Project
+        </Link>
+      </div>
+      <ProjectList />
+    </div>
+  )
+}
+
+export default ProjectListPage
+

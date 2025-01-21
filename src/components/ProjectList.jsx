@@ -1,40 +1,44 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
+import { toast } from "react-toastify"
 import axios from 'axios';
-import './style/ProjectList.css';
+import "./style/ProjectList.css"
 
-const ProjectList = ({ onProjectSelect }) => {
-  const [projects, setProjects] = useState([]);
-
-  useEffect(() => {
-    const fetchProjects = async () => {
+const ProjectList = () => {
+    const [projects, setProjects] = useState([])
+  
+    useEffect(() => {
+      loadProjects()
+    }, [])
+  
+    const loadProjects = async () => {
       try {
         const response = await axios.get('https://test-fe.sidak.co.id/api/projects');
-        setProjects(response.data);
+        setProjects(response.data)
       } catch (error) {
-        console.error('Error fetching projects:', error);
+        console.error("Error fetching projects:", error)
+        toast.error("Failed to load projects")
       }
-    };
-
-    fetchProjects();
-  }, []);
-
+    }
+  
   return (
     <div className="project-list">
-      <h2>Projects</h2>
       <ul>
-        {projects.map((project) => (
-          <li key={project.id} className="project-item">
-            <div>
-              <h3>{project.name}</h3>
-              <p>{project.description}</p>
-            </div>
-            <button onClick={() => onProjectSelect(project.id)}>View Tasks</button>
-          </li>
-        ))}
+        {projects.length > 0 ? (
+          projects.map((project) => (
+            <li key={project.id} className="project-item">
+                <h3>{project.name}</h3>
+                <p>{project.description}</p>
+              <Link to={`/project/${project.id}`}><button>View Tasks</button></Link>
+            </li>
+          ))
+        ) : (
+          <li>No projects available</li>
+        )}
       </ul>
     </div>
-  );
-};
+  )
+}
 
-export default ProjectList;
+export default ProjectList
 
